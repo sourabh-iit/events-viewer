@@ -1,0 +1,34 @@
+<div class="viewer-container">
+  <div class="viewer-header">
+    <div class="header-title">Events Viewer</div>
+    <div class="tabs-container">
+      <div class="tab" [class.not_selected]="selectedEvent?.id!=eventId" (click)="selectEvent(eventId)" 
+        *ngFor="let eventId of getOpenEventIds(eventDataCacheById)">
+        Event Type {{eventId}}
+        <div class="close" (click)="closeEvent(eventId)">x</div>
+      </div>
+    </div>
+  </div>
+  <div class="viewer-body">
+    <div class="viewer-sidebar">
+      <div class="event-type" (click)="selectEvent(eventId)" *ngFor="let eventId of eventIds">
+        Events Type {{eventId}}
+      </div>
+    </div>
+    <div class="event-data-container" *ngIf="selectedEvent">
+      <div class="event-data" *ngFor="let data of selectedEvent.results">
+        <div class="timestamp">
+          <small>timestamp</small>
+          <div>{{data.timestamp}}</div>
+        </div>
+        <div class="value">
+          <small>_raw</small>
+          <div>{{data.value}}</div>
+        </div>
+      </div>
+      <div *ngIf="selectedEvent.next" class="load-more-container">
+        <button type="button" (click)="loadEvent(selectedEvent.id)">Load More</button>
+      </div>
+    </div>
+  </div>
+</div>

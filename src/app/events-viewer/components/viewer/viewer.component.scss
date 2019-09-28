@@ -1,0 +1,97 @@
+.viewer-container {
+  .viewer-header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    background: gray;
+    padding: 0 15px;
+    .header-title {
+      font-size: 30px;
+      font-weight: 500;
+    }
+    .tabs-container {
+      position: absolute;
+      left: 20%;
+      width: 80%;
+      line-height: 39px;
+      margin-top: 5px;
+      display: flex;
+      .tab {
+        flex-grow: 1;
+        overflow: hidden;
+        max-width: 200px;
+        text-align: center;
+        background: white;
+        padding-left: 5px;
+        position: relative;
+        &.not_selected{
+          border-left: 2px solid #cac1c1;
+          border-right: 2px solid #cac1c1;
+          border-bottom: 2px solid #cac1c1;
+        }
+        max-height: 40px;
+        display: flex;
+        .close {
+          width: 15px;
+          position: absolute;
+          right: 0;
+          background: white;
+          font-weight: bold;
+          cursor: pointer;
+          visibility: hidden;
+        }
+        &:hover {
+          .close {
+            visibility: visible;
+          }
+        }
+      }
+    }
+  }
+  .viewer-body {
+    width: 100%;
+    display: flex;
+    .viewer-sidebar {
+      max-height: 600px;
+      overflow-y: scroll;
+      width: 18%;
+      background: #d2d2de;
+      border-left: 2px solid #8c7474;
+      border-right: 2px solid #8c7474;
+      .event-type {
+        display: flex;
+        padding-left: 10px;
+        align-items: center;
+        line-height: 50px;
+        border-bottom: 2px solid #8c7474;
+        cursor: pointer;
+      }
+    }
+    .event-data-container {
+      max-height: 580px;
+      overflow-y: scroll;
+      width: 79%;
+      position: absolute;
+      left: 20%;
+      margin-top: 20px;
+      border: 1px solid brown;
+      .event-data {
+        display: flex;
+        border-bottom: 1px solid brown;
+        padding: 5px;
+        .timestamp {
+          width: 20%;
+        }
+      }
+      .load-more-container {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        button {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
